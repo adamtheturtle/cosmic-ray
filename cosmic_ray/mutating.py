@@ -7,7 +7,16 @@ from .importing import using_mutant
 
 LOG = logging.getLogger()
 
-
+class MutationRecord:
+    def __init__(self,
+                 module_name,
+                 module_file,
+                 operator,
+                 activation_record,
+                 mutant):
+        self._module_name = module_name
+        self._module_file = module_file
+        self._operator = operator
 MutationRecord = namedtuple('MutationRecord', ['module_name',
                                                'module_file',
                                                'operator',
@@ -15,7 +24,7 @@ MutationRecord = namedtuple('MutationRecord', ['module_name',
                                                'mutant'])
 
 
-def create_mutants(modules, operators):
+def mutation_records(modules, operators):
     """Mutate `modules` with `operators`.
 
     Returns an iterable of `MutationRecord`s, one for each application

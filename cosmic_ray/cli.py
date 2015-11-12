@@ -121,7 +121,7 @@ options:
 
     operators = cosmic_ray.operators.all_operators()
 
-    mutation_records = mutating.create_mutants(modules, operators)
+    mutation_records = mutating.mutation_records(modules, operators)
 
     summarizer = Summarizer()
 
